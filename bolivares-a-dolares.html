@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es-ve">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" herf= "http.//fonts.googleapis.com/css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <meta name="description" content="Convierte dólares a bolívares utilizando la tasa del Banco Central de Venezuela usando CalculApp tu App de compras.">
+  <meta name="keywords" content="Calculadora, Dolares en Venezuela, Dolares a Bolivares, Como Cambiar Dolares en Venezuela.">
+
+<meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="Tue, 01 Jan 2050 1:00:00 GMT" />
+  <meta http-equiv="pragma" content="no-cache" />
+  
+
+  <title>Calduladora Dólares a Bolívares Online</title>
+  </head>
+<body>
+
+<nav class="navbar">
+        <div class="logo">
+                <img src="https://i.postimg.cc/htNxnrJX/calculaap2.png" alt="Calculadora">
+            </a>
+        </div>
+        <!-- Ícono de hamburguesa -->
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Dólares a Bolívares</a></li>
+            <li><a href="bolivares-a-dolares.html">Bolívares a Dólares</a></li>
+            <!-- Agregar iconos sociales -->
+
+        </ul>
+    </nav>
+
+  <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script><br>
+
+<!-- Formulario -->
+<div class="formulario" id="formulario1">
+  <a href="index.html"></a>
+  <form id="conversion-form"><br>
+    <h1>¡Calcula tus Compras!</h1>
+    <label for="bolivares">Cantidad de Bolívares:</label><br>
+    <input type="number" id="bolivares" step="0.01" min="0" placeholder="Monto en Bs" ><br>
+    <button type="submit">Calcular</button>
+    <button type="button" id="reset-button">Borrar</button>
+  </form> 
+</div>
+<!-- Fin Formulario -->
+
+<!-- Tasa y Fecha -->
+<p>Tasa <a href="https://www.bcv.org.ve" target="_blank">BCV</a> <strong>34.84 Bs</strong></p>
+<div class="post-meta">
+  <b>Última actualización:</b> <span class="updated">
+    <script>
+      var d = new Date();
+      document.write(d.toLocaleString());
+    </script>
+  </span>
+</div>
+<p>Monto en Dólares: <span id="result"></span></p><br>
+
+<!-- Script Ejecutable -->
+<script>
+    const form = document.getElementById('conversion-form');
+    const resultElement = document.getElementById('result');
+    const rate = 34.84;
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const bolivares = form.elements.bolivares.value;
+      const dollars = bolivares / rate;
+      resultElement.textContent = `$${dollars.toFixed(2)}`;
+    });
+
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', event => {
+      form.elements.bolivares.value = '';
+      resultElement.textContent = '';
+    });
+</script>
+
+
+<!-- Footer -->
+
+<div class="footer">
+<footer>
+<p>Versión 9.8</p>
+<p>Developed by <a href="https://linktr.ee/edevisr" target="_blank" >@edevisr</p></a>
+</footer>
+</div>
+
+<style>
+  
+body {
+      font-family: Lato, sans-serif;
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; 
+    }
+
+
+ /* Estilos del navbar */
+        .navbar {
+            background-color: #e0e0e0;
+            color: #2d2d2d;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2; /* Asegura que el navbar esté delante de los demás elementos */
+        }
+
+        /* Estilos del logotipo */
+        .logo img {
+            width: 150px; /* Ajusta el ancho según el tamaño de tu logotipo */
+            height: auto;
+        }
+
+        /* Estilos del menú */
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-left: 5px;
+        }
+
+        .menu a {
+            color: #2d2d2d;
+            text-decoration: none;
+            padding: 7px 10px;
+            border-radius: 4px;
+        }
+
+        .menu a:hover {
+            background-color: #e43b3b;
+            color: white;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media only screen and (max-width: 768px) {
+            .menu {
+                display: none; /* Ocultar el menú en pantallas pequeñas */
+            }
+
+            .menu.open {
+                display: flex; /* Mostrar el menú al hacer clic en el ícono */
+                flex-direction: column;
+                background-color: #e0e0e0;
+                position: absolute;
+                top: 70px; /* Ajusta la posición del menú desplegable */
+                right: 20px;
+                z-index: 1; /* Asegura que el menú desplegable esté delante de los demás elementos */
+            }
+
+            .menu.open li {
+                margin: 5px 0;
+            }
+        }
+
+        .menu-toggle {
+            display: none; /* Ocultar el ícono de hamburguesa en pantallas grandes */
+        }
+
+        /* Estilos para el ícono de hamburguesa */
+        @media only screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+/* Estilo del formulario */
+.formulario {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilo de entrada de número */
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+/* Estilo de botón "Calcular" */
+button[type="submit"] {
+  width: 100%;
+  background-color: #e43b3b;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #661212;
+}
+
+/* Estilo de botón "Borrar" */
+button[type="button"] {
+  width: 100%;
+  background-color: #e43b3b;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #661212;
+}
+
+/* Estilo del resultado */
+#result {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+
+/* Añade un ícono si lo deseas */
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  background: url('calculaap2.png') no-repeat;
+  background-size: cover;
+}
+
+
+.footer {
+  background-color: #333; /* color de fondo del footer */
+  color: #fff; /* color de la letra */
+  text-align: center; /* alineacion del texto */
+  padding: 9px; /* espaciado interno */
+  margin-top: auto; 
+}
+
+.footer a {
+  color: #fff; /* color de los enlaces */
+  text-decoration: none; /* elimina la decoracion debajo del enlace */
+  margin: 0 10px; /* espaciado entre enlaces */
+  font-size: 14px; /* tamaño de la letra */
+}
+
+.footer p {
+
+color: #b7b7b7;
+text-decoration: none;
+font-size: 12px;
+
+}
+
+.terminos {
+
+    padding: 20px;
+    max-width: 800px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+#terminos1 h2 {
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#terminos1 p {
+    font-size: 0.8rem;
+    color: #000000;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 100%;
+  }
+}
+
+</style>
+
+</body>
+</html>
