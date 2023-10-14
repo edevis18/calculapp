@@ -20,32 +20,24 @@
 <body>
 
 <nav class="navbar">
-        <div class="logo">
-                <img src="https://i.postimg.cc/htNxnrJX/calculaap2.png" alt="Calculadora">
-            </a>
-        </div>
-        <!-- Ícono de hamburguesa -->
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-        <ul class="menu" id="menu">
-            <li><a href="index.html">Dólares a Bolívares</a></li>
-            <li><a href="bolivares-a-dolares.html">Bolívares a Dólares</a></li>
-            <!-- Agregar iconos sociales -->
+    <div class="logo">
+        <img src="https://i.postimg.cc/htNxnrJX/calculaap2.png" alt="Calculadora">
+    </div>
+    <!-- Ícono de hamburguesa -->
+</nav>
 
-        </ul>
-    </nav>
-
-  <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu');
-            menu.classList.toggle('open');
-        }
-    </script><br>
 
 <!-- Formulario -->
 <div class="formulario" id="formulario1">
+
+<input type="checkbox" id="switch" class="switch-checkbox">
+<label for="switch" class="switch-label">
+  <div class="switch-inner"></div>
+  <div class="switch-switch"></div>
+</label>
   <a href="index.html"></a>
   <form id="conversion-form"><br>
-    <h1>¡Calcula tus Compras!</h1>
+    <h1>¡Dolares a Bolívares!</h1>
     <label for="dollars">Cantidad de Dólares:</label><br>
     <input type="number" id="dollars" step="0.01" min="0" max="10000" placeholder="Monto en $" ><br>
     <button type="submit">Calcular</button>
@@ -112,20 +104,23 @@ body {
 
  /* Estilos del navbar */
         .navbar {
-            background-color: #e0e0e0;
+            background-color: #fff;
             color: #2d2d2d;
             padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             position: relative;
             z-index: 2; /* Asegura que el navbar esté delante de los demás elementos */
+            justify-content: center; /* Centra horizontalmente */
+      
+    }
         }
 
         /* Estilos del logotipo */
         .logo img {
             width: 150px; /* Ajusta el ancho según el tamaño de tu logotipo */
             height: auto;
+
         }
 
         /* Estilos del menú */
@@ -311,7 +306,82 @@ font-size: 12px;
   }
 }
 
+
+/* Contenedor del switch */
+.switch-container {
+  text-align: center;
+}
+
+/* Estilos del contenedor del switch */
+.switch-label {
+  width: 60px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Estilos del interior del switch (representa el estado apagado) */
+.switch-inner {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+/* Estilos del switch (representa el estado encendido) */
+.switch-switch {
+  width: 30px;
+  height: 30px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.3s;
+}
+
+/* Estilo oculto del input */
+.switch-checkbox {
+  display: none;
+}
+
+/* Cambiar el estado del switch al hacer clic en la etiqueta */
+.switch-checkbox:checked + .switch-label .switch-inner {
+  transform: translateX(30px);
+}
+
+.switch-checkbox:checked + .switch-label .switch-switch {
+  left: 0;
+  background-color: #4CAF50;
+}
+
+/* Redirección cuando se cambia el estado del switch */
+.switch-checkbox:checked + .switch-label {
+  cursor: default;
+}
+
+/* Cambiar el cursor al pasar el mouse sobre el switch */
+.switch-label:hover {
+  background-color: #aaa;
+}
+
 </style>
+
+<script>
+  
+document.getElementById("switch").addEventListener("change", function () {
+  if (this.checked) {
+    // Redirigir a la página deseada cuando el switch está encendido
+    window.location.href = "bolivares-a-dolares.html";
+  }
+});
+
+
+</script>
 
 </body>
 </html>
