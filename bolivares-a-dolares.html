@@ -1,67 +1,58 @@
 <!DOCTYPE html>
-<html lang="es-ve">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel= "stylesheet" type= "text/css" herf= "http.//fonts.googleapis.com/css">
-  <link rel="stylesheet" href="css/estilos.css">
-  <meta name="description" content="Convierte dólares a bolívares utilizando la tasa del Banco Central de Venezuela usando CalculApp tu App de compras.">
-  <meta name="keywords" content="Calculadora, Dolares en Venezuela, Dolares a Bolivares, Como Cambiar Dolares en Venezuela.">
-
-<meta http-equiv="cache-control" content="max-age=0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="max-age=0" />
   <meta http-equiv="cache-control" content="no-cache" />
   <meta http-equiv="expires" content="0" />
   <meta http-equiv="expires" content="Tue, 01 Jan 2050 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
-  
-
-  <title>Calduladora Dólares a Bolívares Online</title>
-  </head>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/65c161370e.js" crossorigin="anonymous"></script>
+    <title>Bolivares a Dolares</title>
+</head>
 <body>
 
-<nav class="navbar">
-        <div class="logo">
-                <img src="https://i.postimg.cc/htNxnrJX/calculaap2.png" alt="Calculadora">
-            </a>
-        </div>
-        </ul>
-    </nav><br>
+<br>
 
-<!-- Formulario -->
-<div class="formulario" id="formulario1">
-  <input type="checkbox" id="switch" class="switch-checkbox">
-<label for="switch" class="switch-label">
-  <div class="switch-inner"></div>
-  <div class="switch-switch"></div>
-</label>
-  <a href="index.html"></a>
-  <form id="conversion-form"><br>
-    <h1>¡Bolívares a Dólares!</h1>
-    <label for="bolivares">Cantidad de Bolívares:</label><br>
-    <input type="number" id="bolivares" step="0.01" min="0" placeholder="Monto en Bs" ><br>
-    <button type="submit">Calcular</button>
-    <button type="button" id="reset-button">Borrar</button>
-  </form> 
-</div>
-<!-- Fin Formulario -->
+     <!-- Formulario -->
+  <div class="formulario" id="formulario1">
+    <img src="https://i.postimg.cc/htNxnrJX/calculaap2.png" alt="Calculadora" style="width: 200px;">
+    <a href="index.html"></a>
+    <form id="conversion-form"><br>
+      <h2>¡Bolívares a Dólares!</h2>
+      <label for="bolivares">Cantidad en Bolívares:</label><br>
+      <input type="number" id="bolivares" step="0.01" min="0" max="100000" placeholder="Monto en Bs" ><br>
+      <button type="submit">Calcular</button>
+      <button type="button" id="reset-button">Borrar</button>
+    </form> 
 
 <!-- Tasa y Fecha -->
-<p>Tasa <a href="https://www.bcv.org.ve" target="_blank">BCV</a> <strong>35.52 Bs</strong></p>
-<div class="post-meta">
-  <b>Última actualización:</b> <span class="updated">
-    <script>
-      var d = new Date();
-      document.write(d.toLocaleString());
-    </script>
-  </span>
-</div>
-<p>Monto en Dólares: <span id="result"></span></p><br>
+  <p>Tasa <a href="https://www.bcv.org.ve" target="_blank">BCV</a> <strong>36.56 Bs</strong></p>
+  <div class="post-meta">
+    <b>Última actualización:</b> <span class="updated">
+      <script>
+        var d = new Date();
+        document.write(d.toLocaleString());
+      </script>
+    </span>
+  </div>
+  <p>Monto en Dólares: <span id="result"></span></p>
 
-<!-- Script Ejecutable -->
-<script>
+  </div><br>
+  <!-- Fin Formulario -->
+
+
+<div class="cambiar-btn">
+ <a href="index.html"><i class="fa fa-refresh" aria-hidden="true"></i> Cambiar a Dólares</a>   
+</div><br>
+
+  <!-- Script Ejecutable -->
+  <script>
     const form = document.getElementById('conversion-form');
     const resultElement = document.getElementById('result');
-    const rate = 35.52;
+    const rate = 36.56;
 
     form.addEventListener('submit', event => {
       event.preventDefault();
@@ -75,311 +66,13 @@
       form.elements.bolivares.value = '';
       resultElement.textContent = '';
     });
-</script>
+  </script>
 
-
-<!-- Footer -->
-
-<div class="footer">
-<footer>
-<p>Versión 9.8</p>
-<p>Developed by <a href="https://linktr.ee/edevisr" target="_blank" >@edevisr</p></a>
+  <!-- Footer -->
+<footer class="fixed-footer">
+    <p>© 2024 CalculApp | Developed by <a href="https://bit.ly/servicios-edevis" target="_blank"> @edevisr</a></p>
 </footer>
-</div>
 
-<style>
-  
-body {
-      font-family: Lato, sans-serif;
-      max-width: 100%;
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; 
-    }
-
-
- /* Estilos del navbar */
-        .navbar {
-            background-color: #fff;
-            color: #2d2d2d;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center;
-            position: relative;
-            z-index: 2; /* Asegura que el navbar esté delante de los demás elementos */
-        }
-}
-
-        /* Estilos del logotipo */
-        .logo img {
-            width: 150px; /* Ajusta el ancho según el tamaño de tu logotipo */
-            height: auto;
-        }
-
-        /* Estilos del menú */
-        .menu {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu li {
-            margin-left: 5px;
-        }
-
-        .menu a {
-            color: #2d2d2d;
-            text-decoration: none;
-            padding: 7px 10px;
-            border-radius: 4px;
-        }
-
-        .menu a:hover {
-            background-color: #e43b3b;
-            color: white;
-        }
-
-        /* Estilos para dispositivos móviles */
-        @media only screen and (max-width: 768px) {
-            .menu {
-                display: none; /* Ocultar el menú en pantallas pequeñas */
-            }
-
-            .menu.open {
-                display: flex; /* Mostrar el menú al hacer clic en el ícono */
-                flex-direction: column;
-                background-color: #e0e0e0;
-                position: absolute;
-                top: 70px; /* Ajusta la posición del menú desplegable */
-                right: 20px;
-                z-index: 1; /* Asegura que el menú desplegable esté delante de los demás elementos */
-            }
-
-            .menu.open li {
-                margin: 5px 0;
-            }
-        }
-
-        .menu-toggle {
-            display: none; /* Ocultar el ícono de hamburguesa en pantallas grandes */
-        }
-
-        /* Estilos para el ícono de hamburguesa */
-        @media only screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                cursor: pointer;
-            }
-        }
-
-/* Estilo del formulario */
-.formulario {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-/* Estilo de entrada de número */
-input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 18px;
-}
-
-/* Estilo de botón "Calcular" */
-button[type="submit"] {
-  width: 100%;
-  background-color: #e43b3b;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #661212;
-}
-
-/* Estilo de botón "Borrar" */
-button[type="button"] {
-  width: 100%;
-  background-color: #e43b3b;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-button[type="button"]:hover {
-  background-color: #661212;
-}
-
-/* Estilo del resultado */
-#result {
-  font-weight: bold;
-  font-size: 24px;
-  margin-top: 20px;
-}
-
-
-/* Añade un ícono si lo deseas */
-.icon {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 20px;
-  background: url('calculaap2.png') no-repeat;
-  background-size: cover;
-}
-
-
-.footer {
-  background-color: #333; /* color de fondo del footer */
-  color: #fff; /* color de la letra */
-  text-align: center; /* alineacion del texto */
-  padding: 9px; /* espaciado interno */
-  margin-top: auto; 
-}
-
-.footer a {
-  color: #fff; /* color de los enlaces */
-  text-decoration: none; /* elimina la decoracion debajo del enlace */
-  margin: 0 10px; /* espaciado entre enlaces */
-  font-size: 14px; /* tamaño de la letra */
-}
-
-.footer p {
-
-color: #b7b7b7;
-text-decoration: none;
-font-size: 12px;
-
-}
-
-.terminos {
-
-    padding: 20px;
-    max-width: 800px;
-    text-align: left;
-    margin: 0 auto;
-}
-
-#terminos1 h2 {
-    color: #000000;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-#terminos1 p {
-    font-size: 0.8rem;
-    color: #000000;
-    margin-top: 5px;
-    line-height: 1.2;
-}
-
-@media (max-width: 600px) {
-  form {
-    width: 100%;
-  }
-}
-
-
-
-/* Contenedor del switch */
-.switch-container {
-  text-align: center;
-}
-
-/* Estilos del contenedor del switch */
-.switch-label {
-  width: 60px;
-  height: 30px;
-  background-color: #ddd;
-  border-radius: 15px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-/* Estilos del interior del switch (representa el estado apagado) */
-.switch-inner {
-  width: 30px;
-  height: 30px;
-  background-color: #229c36;
-  border-radius: 50%;
-  position: relative;
-  transition: transform 0.3s;
-}
-
-/* Estilos del switch (representa el estado encendido) */
-.switch-switch {
-  width: 30px;
-  height: 30px;
-  background-color: #2196F3;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: left 0.3s;
-}
-
-/* Estilo oculto del input */
-.switch-checkbox {
-  display: none;
-}
-
-/* Cambiar el estado del switch al hacer clic en la etiqueta */
-.switch-checkbox:checked + .switch-label .switch-inner {
-  transform: translateX(30px);
-}
-
-.switch-checkbox:checked + .switch-label .switch-switch {
-  left: 0;
-  background-color: #4CAF50;
-}
-
-/* Redirección cuando se cambia el estado del switch */
-.switch-checkbox:checked + .switch-label {
-  cursor: default;
-}
-
-/* Cambiar el cursor al pasar el mouse sobre el switch */
-.switch-label:hover {
-  background-color: #aaa;
-}
-
-</style>
-
-
-<script>
-  
-document.getElementById("switch").addEventListener("change", function () {
-  if (this.checked) {
-    // Redirigir a la página deseada cuando el switch está encendido
-    window.location.href = "index.html";
-  }
-});
-
-
-</script>
 
 </body>
 </html>
